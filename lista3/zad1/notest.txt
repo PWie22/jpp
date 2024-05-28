@@ -1,8 +1,0 @@
-w galoisField trzeba chyba dopisać metody, które umożliwią działania na dwóch zmiennych
-o typie GaloisField, a nie tylko GaloisField [działanie] int
-
-co zrobić z operacją modulo? - na intach to działa, ale na GaloisField nie
-
-jeżeli liczba a jest podzielna przez b, to:
-c = a/b // dzielenie całkowite
-a - c*b == 0
