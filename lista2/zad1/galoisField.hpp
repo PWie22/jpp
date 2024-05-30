@@ -5,11 +5,11 @@
 
 class GaloisField {
 private:
-    static int primeNumber; // liczba, która jest generatorem ciała
-    int val;
-    int number(int a);
+    static int primeNumber;
+    int val; // value of the object
+    int number(int a); // function to convert value of a into a value from the field range (from 0 to primeNumber-1)
     int extendedEuclideanAlgorithm(int a, int b, int& x, int& y);
-    int invert(const int& a);
+    int invert(const int& a); // returns b for which a*b = 1 in this field
 public:
     GaloisField(int val);
     ~GaloisField();
@@ -42,6 +42,8 @@ public:
     bool operator >=(const int& a);
     bool operator <(const int& a);
     bool operator >(const int& a);
+
+    operator int() const;
 
 };
 

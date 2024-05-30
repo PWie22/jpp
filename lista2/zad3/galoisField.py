@@ -78,15 +78,15 @@ class GaloisField:
         '''if extEuc[0] == 1:
             return (extEuc[1]%self.primeNumber + self.primeNumber) % self.primeNumber'''
         if gcd == 1:
-            return (x0 % self.primeNumber + self.primeNumber) % self.primeNumber # zwracany jest int, ale przekonwertowany tak, żeby miał wartość z ciała
+            return (x0 % self.primeNumber + self.primeNumber) % self.primeNumber
         return -1
 
     def __truediv__(self, b):
         if b == 0:
             raise ValueError("You can't divide by zero.\n")
         inverted = self.__invert(b)
-        # w ciele nie ma elementów nieodwracalnych, ale gdyby nie podano liczby, która jest pierwsza
-        # to takie by się pojawiły
+        # in a finite field all values (except zero) are invertible, but if self.primeNumber
+        # is not a prime number then such elements appear
         if inverted == -1:
             raise ValueError("Cannot invert {}\n".format(b))
         return self.__mul__(inverted)
@@ -128,14 +128,7 @@ class GaloisField:
     def __le__(self, b):
         return self.value <= self.__number(b)
 
-    '''def print(self):
-        print(self.value)'''
-
     def __int__(self):
-        '''if isinstance(a, int):
-            return a
-        if isinstance(a, GaloisField):
-            return a.value'''
         return self.value
 
     def __str__(self):

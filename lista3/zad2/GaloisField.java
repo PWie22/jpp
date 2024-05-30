@@ -35,16 +35,6 @@ public class GaloisField implements Operations<GaloisField> {
     }
 
     private int invert(int a) {
-        /*int temp = this.value;
-        this.value = a;
-        for(int i = 1; i < primeNumber; i++) {
-            if (multiply(i).checkIfEqual(1)) {
-                this.value = temp;
-                return i;
-            }
-        }
-        this.value = temp;
-        return -1;*/
         int aa = number(a);
         int[] extEuc = extendedEuclideanAlgorithm(aa, primeNumber);
         if (extEuc[0] == 1) {

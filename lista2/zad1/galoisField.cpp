@@ -68,8 +68,8 @@ GaloisField GaloisField::operator -(const int& a) {
 }
 
 GaloisField GaloisField::operator *(const int& a) {
-    //long long aa = number(a);
-    int res = (this->val * number(aa)) % primeNumber;
+    long long aa = number(a);
+    int res = (this->val * aa) % primeNumber;
     return GaloisField(res);
 }
 
@@ -151,11 +151,15 @@ bool GaloisField::operator >(const int& a) {
     return false;
 }
 
+GaloisField::operator int() const {
+    return this->val;
+}
+
 std::ostream& operator <<(std::ostream& os, GaloisField gs) {
     return os << gs.getValue() << std::endl;
 }
 
-std::istream& operator >>(std::istream& is, GaloisField gs) {
+std::istream& operator >>(std::istream& is, GaloisField& gs) {
     int a;
     is >> a;
     gs.setValue(a);

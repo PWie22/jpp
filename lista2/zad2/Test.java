@@ -1,10 +1,10 @@
 
 class Test {
     public static void main(String []args) {
-        GaussField.setPrimeNumber(1234577);
-        GaussField gs = new GaussField(1);
+        GaloisField.setPrimeNumber(1234577);
+        GaloisField gs = new GaloisField(1);
 
-        GaussField gs2 = gs.add(1234577);
+        GaloisField gs2 = gs.add(1234577);
         System.out.print("1 + 1234577 = "); gs2.println();
         gs2 = gs.add(0);
         System.out.print("1 + 0 = "); gs2.println();

@@ -43,7 +43,6 @@ def test_divide():
     with pytest.raises(ValueError):
         a = a / 1234577
     assert a == 1
-    # poniższe dwa przykłady zaczerpnięte z listy 3 na jftt autorstwa dra gębali
     a.substitute(269164)
     assert a / 123456 == 567890
     assert a / 1 == 269164
@@ -125,9 +124,9 @@ def test_multiplyAndSubst():
 def test_divideAndSubst():
     global a
     a.substitute(1)
-    with pytest.raises(ValueError): # sprawdzenie, czy funkcja wyrzuca błąd, kiedy chcemy podzielić przez zero
+    with pytest.raises(ValueError):
         a /= 0
-    with pytest.raises(ValueError): # sprawdzenie, czy funkcja wyrzuca błąd, kiedy chcemy podzielić przez zero
+    with pytest.raises(ValueError):
         a /= 1234577
     assert a == 1
     a /= -580978
@@ -220,8 +219,8 @@ def test_checkIfThisSmallerEqual():
     assert a <= -1
     print("Tests for <= : \033[32mPASSED\033[0m")
 
-# próba utworzenia obiektu bez przypisania wartości do zmiennej primeNumber w klasie GaussField
-# wyrzuci wyjątek
+# attempt to create an object of class GaloisField without primeNumber set
+# throws an exception    
 with pytest.raises(Exception):
     a = GaloisField(3)
 print("Test for detecting not assigned variable 'primeNumber' : \033[32mPASSED\033[0m")
@@ -232,7 +231,7 @@ GaloisField.setPrimeNumber(primeNumber)
 assert GaloisField.getPrimeNumber() == primeNumber
 print("Test for getPrimeNumber() : \033[32mPASSED\033[0m")
 
-# początkowa wartość do testów
+# initiating value for tests
 a = GaloisField(1)
 
 test_add()

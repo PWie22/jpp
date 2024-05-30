@@ -18,6 +18,7 @@ int main(int argc, char* argv[]) {
     assert(gs + 1234576 == 0);
     assert(gs + 100 == 101);
     assert(gs + 1234977 == 401);
+    assert(gs + gs == 2);
     std::cout << "Tests for + : " << GREEN << "PASSED" << WHITE << std::endl;
 
     assert(gs - 1234577 == 1);
@@ -55,7 +56,7 @@ int main(int argc, char* argv[]) {
     assert(gs / (-580978) == 123456);
     gs = -4;
     assert(gs / 1234578 == 1234573);
-    assert(gs / 653599 == 740753); // 1234573 / 653599 = 1234573 * 123456 --- 123456 jako odwrotność 653599 sprawdzona wyżej
+    assert(gs / 653599 == 740753); // 1234573 / 653599 = 1234573 * 123456
     std::cout << "Tests for / : " << GREEN << "PASSED" << WHITE << std::endl;
 
     gs = 0;

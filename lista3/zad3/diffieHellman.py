@@ -6,6 +6,8 @@ import copy
 T = TypeVar('T')
 
 class DHSetup:
+    
+    # t - any object of type T
     def __init__(self, characteristics: int, t: T):
         self.generator = self.__generateGenerator(characteristics, t)
 
@@ -29,8 +31,9 @@ class DHSetup:
             i += 1
         return primes
 
-    # parametr t to jest 0, ale odpowiedniego typu, np. GaloisField(0), 0
     def __generateGenerator(self, characteristics: int, t: T) -> T:
+        if t != 0:
+            t -= t
         primes = self.__factorIntoPrimes(characteristics - 1)
         while True:
             randNumb = random.randint(1, characteristics-1)
@@ -48,7 +51,7 @@ class DHSetup:
     def power(self, a: T, b: int) -> T:
         res: T = copy.copy(a)
         res -= a
-        res += 1 # sztucznie wygenerowana jedynka typu T
+        res += 1 # artificially generated one of type T
         while b > 0:
             if b % 2 == 1:
                 res *= a

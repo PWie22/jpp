@@ -1,5 +1,5 @@
 
-public class GaussField {
+public class GaloisField {
 
     private int value;
     private static int primeNumber;
@@ -35,16 +35,6 @@ public class GaussField {
     }
 
     private int invert(int a) {
-        /*int temp = this.value;
-        this.value = a;
-        for(int i = 1; i < primeNumber; i++) {
-            if (multiply(i).checkIfEqual(1)) {
-                this.value = temp;
-                return i;
-            }
-        }
-        this.value = temp;
-        return -1;*/
         int aa = number(a);
         int[] extEuc = extendedEuclideanAlgorithm(aa, primeNumber);
         if (extEuc[0] == 1) {
@@ -53,7 +43,7 @@ public class GaussField {
         return -1;
     }
 
-    public GaussField(int value) {
+    public GaloisField(int value) {
         this.value = number(value);
     }
 
@@ -69,21 +59,20 @@ public class GaussField {
         return this.value;
     }
 
-    public GaussField add(int b) {
-        return new GaussField(this.value + b);
+    public GaloisField add(int b) {
+        return new GaloisField(this.value + b);
     }
 
-    public GaussField subtract(int b) {
-        return new GaussField(this.value - b);
+    public GaloisField subtract(int b) {
+        return new GaloisField(this.value - b);
     }
 
-    public GaussField multiply(int b) {
-        long bb = number(b);
-        long mult = this.value*bb % primeNumber;
-        return new GaussField((int) mult);
+    public GaloisField multiply(int b) {
+        int bb = number(b);
+        return new GaloisField(this.value*bb % primeNumber);
     }
 
-    public GaussField divide(int b) throws ArithmeticException {
+    public GaloisField divide(int b) throws ArithmeticException {
         if (number(b) == 0) {
             throw new ArithmeticException("You cannot divide by zero.");
         }
